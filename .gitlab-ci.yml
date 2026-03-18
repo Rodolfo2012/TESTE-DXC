@@ -1,0 +1,28 @@
+# Usa uma imagem Docker com Maven e JDK 11, compatível com o projeto
+image: maven:3.8.5-openjdk-11
+
+# Define os estágios do pipeline
+stages:
+  - build
+  - test
+
+# Job para compilar o projeto
+build-job:
+  stage: build
+  script:
+    - echo "Compilando o código..."
+    - mvn compile
+  artifacts:
+    paths:
+      - target/
+
+# Job para rodar os testes unitários
+test-job:
+  stage: test
+  script:
+    - echo "Executando testes..."
+    - mvn test
+  artifacts:
+    reports:
+      junit:
+        - target/surefire-reports/TEST-*.xml
