@@ -16,7 +16,14 @@
 	<description>Microserviço de Clientes com OAuth2 e RabbitMQ</description>
 
 	<properties>
-		<java.version>11</java.version> </properties>
+		<java.version>11</java.version>
+		<!-- SonarQube Exclusions -->
+		<sonar.exclusions>
+			**/com.example.TesteDXC.config/**,
+			**/com.example.TesteDXC.model/**,
+			**/com.example.TesteDXC.TesteDxcApplication.java
+		</sonar.exclusions>
+	</properties>
 
 	<dependencies>
 		<dependency>
